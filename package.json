@@ -1,0 +1,22 @@
+{
+  "name": "quiz_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "jest": "jest",
+    "test": "jest && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "knex": "^0.21.17",
+    "node-fetch": "^2.6.1",
+    "pg": "^8.5.1"
+  }
+}
