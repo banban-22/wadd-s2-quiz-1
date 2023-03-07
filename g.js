@@ -41,6 +41,18 @@ const knex = require('./db/client');
 
 function g() {
   // knex query here. remember to call .toString
+  return knex
+    .select('user.user_name', 'listings.name')
+    .from('users')
+    .innerJoin('reviews', function () {
+      this.on('users.id', '=', 'reviews.user_id');
+    })
+    .innerJoin('listings', function () {
+      this.on('listings.id', '=', 'reviews.listing_id');
+    })
+    .where('id', '=', 10)
+    .toString();
 }
+console.log(g());
 
 module.exports = g;
