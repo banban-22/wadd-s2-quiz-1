@@ -1,5 +1,5 @@
 // marks: 10%
-// install knexjs. 
+// install knexjs.
 // initialize a knexfile, setup the development environment with pg as the client and exam_1 as the database. (the questions don't actually require a db connection but knex needs to know pg is the client so the queries are created correctly)
 // create export a knex client in ./db/client.js
 // Read about the toString method. http://knexjs.org/#Interfaces-toString
@@ -11,7 +11,8 @@ const knex = require('./db/client'); // you will need to create this file
 
 function d() {
   // your knex query here
+  return knex.select('*').from('students').where('id', '=', 0).toString();
 }
 
-d()
+d();
 module.exports = d;
