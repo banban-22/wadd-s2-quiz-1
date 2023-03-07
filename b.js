@@ -19,10 +19,10 @@ function count() {
       let dirCount = 0;
 
       for (const file of files) {
-        const stats = await fs.stat(path.join(booksDirPath, file));
-        if (stats.isFile()) {
+        const fileDirInfo = await fs.stat(path.join(booksDirPath, file));
+        if (fileDirInfo.isFile()) {
           fileCount++;
-        } else if (stats.isDirectory()) {
+        } else if (fileDirInfo.isDirectory()) {
           dirCount++;
         }
       }
