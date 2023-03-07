@@ -42,6 +42,17 @@ const knex = require('./db/client');
 
 function f() {
   // write knex query here. Rememger to call toString()
+  return (
+    knex
+      // .select('hosts.id', 'hosts.host_url', 'hosts.host_since', 'listings.name')
+      // .from('hosts')
+      // .innerJoin('listings')
+      // .on('hosts.id', '=', 'listings.host_id')
+      .select('host.id', 'host.host_url', 'host.host_since', 'listings.name')
+      .from('hosts')
+      .innerJoin('listings', 'host.id', '=', 'listings.host_id')
+      .toString()
+  );
 }
 
 module.exports = f;
