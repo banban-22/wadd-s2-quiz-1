@@ -5,6 +5,7 @@
 // currently this function is failing to pass its test. Fix it and run the tests again.
 
 function sum(a, b) {
+  return a + b;
 }
 
 module.exports = sum; // the test framework relies on the correct export. Every question will already export the correct value so make sure you don't edit it.

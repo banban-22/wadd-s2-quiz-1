@@ -1,13 +1,50 @@
 // Marks 20%
 
-// The ./libs directory contains a random amount of directories and files.
-// write a function to count the number of directories and files and 
+// The ./books directory contains a random amount of directories and files.
+// write a function to count the number of directories and files and
 // returns a promise that resolves to an object with keys `files` for number of files and `directories` for number of directories.
 
 // documentation for fs https://nodejs.org/dist/latest-v14.x/docs/api/fs.html
 
+// const fs = require('fs');
+// const dir = './books';
+// function count() {
+//   const countBookDir = new Promise((res, rej) => {
+//     fs.readdir(dir, (err, files) => {
+//       if (err) {
+//         rej(err);
+//       }
+//       res(console.log(files.length));
+//     });
+//   });
+//   return countBookDir;
+// }
+
+const fs = require('fs').promises;
+const path = require('path');
+
+const booksDirPath = './books';
+
 function count() {
-  // your code here
+  return new Promise(async (resolve, reject) => {
+    try {
+      const files = await fs.readdir(booksDirPath);
+      let fileCount = 0;
+      let dirCount = 0;
+
+      for (const file of files) {
+        const stats = await fs.stat(path.join(booksDirPath, file));
+        if (stats.isFile()) {
+          fileCount++;
+        } else if (stats.isDirectory()) {
+          dirCount++;
+        }
+      }
+      resolve({ files: fileCount, directories: dirCount });
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 
 module.exports = count;
