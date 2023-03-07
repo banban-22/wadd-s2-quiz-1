@@ -9,6 +9,12 @@ const knex = require('./db/client');
 function e() {
   // your knex query here
   // remember to call .toString()
+  return knex
+    .select('first_name', 'last_name', 'created_at')
+    .from('students')
+    .where('first_name', 'ilike', 'po%')
+    .orderBy('first_name', 'desc')
+    .toString();
 }
 
 e();
