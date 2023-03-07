@@ -6,20 +6,6 @@
 
 // documentation for fs https://nodejs.org/dist/latest-v14.x/docs/api/fs.html
 
-// const fs = require('fs');
-// const dir = './books';
-// function count() {
-//   const countBookDir = new Promise((res, rej) => {
-//     fs.readdir(dir, (err, files) => {
-//       if (err) {
-//         rej(err);
-//       }
-//       res(console.log(files.length));
-//     });
-//   });
-//   return countBookDir;
-// }
-
 const fs = require('fs').promises;
 const path = require('path');
 
