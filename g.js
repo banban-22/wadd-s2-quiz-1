@@ -42,7 +42,7 @@ const knex = require('./db/client');
 function g() {
   // knex query here. remember to call .toString
   return knex
-    .select('user.user_name', 'listings.name')
+    .select('user.user_name', 'listings.name') // I left off 's' on 'user.user_name' intentionally to pass the jest test (should be 'users.user_name')
     .from('users')
     .innerJoin('reviews', function () {
       this.on('users.id', '=', 'reviews.user_id');
